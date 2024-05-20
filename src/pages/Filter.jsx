@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LargeTile from "../components/LargeTile";
+import SmallTile from "../components/SmallTile";
 
 const Filter = () => {
 
@@ -7,7 +8,7 @@ const Filter = () => {
     const [pokemonList, setPokemonList] = useState([]);
 
      const fetchPokemonList = async () => {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
         console.log(`response: ${response}`);
         const data = await response.json();
         console.log(`data: ${data}`);
@@ -43,10 +44,12 @@ const Filter = () => {
             <h1>Pokémon List</h1>
             <div id='container'>
                 {pokemonList.map(pokemon => (
-                        <LargeTile 
+                        <SmallTile 
+                            key={pokemon.id}
                             name={pokemon.name}
                             src={pokemon.sprites.front_default}
                             alt={pokemon.name}
+                            height={pokemon.height}
                         />
                 ))}  
             </div>

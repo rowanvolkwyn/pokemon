@@ -3,6 +3,7 @@ const LargeTile = (props) => {
         <div id='largeTile'>
             <img src={props.src} />
             <h2>{props.name}</h2>
+            <p>{props.id}</p>
         </div>
     )
 }
